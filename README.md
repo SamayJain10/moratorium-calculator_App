@@ -64,7 +64,7 @@ npm run build
 
 moratorium-calculator/
 ├── dist/
-│   └── bundle.js              
+│   └── app.js              
 ├── src/
 │   ├── index.html           
 │   ├── style.css            
