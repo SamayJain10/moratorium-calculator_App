@@ -68,7 +68,7 @@ export class UI {
         const interestRate = parseFloat((document.getElementById('interestRate') as HTMLInputElement).value);
         const emisPaid = parseInt((document.getElementById('emisPaid') as HTMLInputElement).value);
         const interestOption = (document.querySelector('input[name="interestOption"]:checked') as HTMLInputElement)?.id;
-        const moratoriumMonths = parseInt((document.querySelector('input[name="moratoriumMonths"]:checked') as HTMLInputElement)?.id?.replace('month', ''));
+        const moratoriumMonths = parseInt((document.querySelector('input[name="moratoriumMonths"]:checked') as HTMLInputElement)?.id?.replace('month', '') ?? '0');
 
         const interestOverdue = this.calculator.calculateInterest(loanAmount, loanTenure, interestRate, emisPaid, interestOption, moratoriumMonths);
 
