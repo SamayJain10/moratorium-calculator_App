@@ -9,6 +9,7 @@ export class UI {
     private calculator: Calculator;
 
     constructor() {
+        // Initialize UI elements
         this.loanAmountInput = document.getElementById('loanAmount') as HTMLInputElement;
         this.loanAmountRange = document.getElementById('loanAmountRange') as HTMLInputElement;
         this.calculateButton = document.querySelector('button[type="button"]') as HTMLButtonElement;
@@ -16,13 +17,14 @@ export class UI {
         this.selectedMonthsElement = document.getElementById('selectedMonths') as HTMLElement;
         this.calculator = new Calculator();
     }
-
+ // Initialize event listeners and active state toggles
     init() {
         this.addEventListeners();
         this.toggleActiveState('interestOption');
         this.toggleActiveState('moratoriumMonths');
     }
 
+    // Toggle active state for radio buttons
     private addEventListeners() {
         this.loanAmountRange.addEventListener('input', this.updateLoanAmountInput.bind(this));
         this.loanAmountInput.addEventListener('input', this.updateLoanAmountRange.bind(this));
@@ -51,6 +53,7 @@ export class UI {
         });
     }
 
+    // Update loan amount input when range slider value changes    
     private updateLoanAmountInput() {
         const loanAmount = this.loanAmountRange.value;
         const formattedLoanAmount = new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(Number(loanAmount));
@@ -62,6 +65,7 @@ export class UI {
         this.loanAmountRange.value = loanAmount;
     }
 
+    // Calculate interest overdue based on user inputs and selected options
     private calculateInterest() {
         const loanAmount = parseFloat(this.loanAmountInput.value.replace(/,/g, ''));
         const loanTenure = parseInt((document.getElementById('loanTenure') as HTMLInputElement).value);

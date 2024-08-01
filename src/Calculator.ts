@@ -8,7 +8,7 @@ export class Calculator {
         moratoriumMonths: number
     ): number {
         let interestOverdue = 0;
-
+        // Calculate interest after the moratorium period
         if (interestOption === 'option1') {
             interestOverdue = (loanAmount * (interestRate / 100 / 12)) * moratoriumMonths;
         } else if (interestOption === 'option2') {
